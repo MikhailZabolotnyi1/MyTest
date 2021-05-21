@@ -55,6 +55,7 @@ public class MainTestClass {
         System.out.println("Click on \"Click for JS Alert\" button and click \"OK\" on Alert");
         javaScriptAlertsPage.clickForJSAlertButton().clickOkJSAlertButton();
 
+
         System.out.println("Checking for a corresponding message");
         Assert.assertEquals("You successfully clicked an alert", javaScriptAlertsPage.getResultText());
 
