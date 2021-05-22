@@ -14,9 +14,9 @@ public class AddAndRemoveElementsPage {
         this.driver = driver;
     }
 
-    @FindBy(xpath = "/html/body/div[2]/div/div/button")
+    @FindBy(xpath = "//*[contains(@onclick,'add')]")
     private WebElement addElementButton;
-    @FindBy(xpath = "/html/body/div[2]/div/div/div/button[1]")
+    @FindBy(xpath = "//*[contains(@onclick,'delete')]")
     private WebElement deleteButton;
 
     public AddAndRemoveElementsPage clickAddElementButton() {
@@ -30,7 +30,7 @@ public class AddAndRemoveElementsPage {
     }
 
     public int checkDeleteButtons(){
-        List<WebElement> webElementList = driver.findElements(By.xpath("//div[@class='example']/div[@id='elements']/button"));
+        List<WebElement> webElementList = driver.findElements(By.xpath("//*[contains(@onclick,'delete')]"));
         return webElementList.size();
     }
 }

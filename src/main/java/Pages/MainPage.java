@@ -12,9 +12,9 @@ public class MainPage {
         this.driver = driver;
     }
 
-    @FindBy(xpath = "/html/body/div[2]/div/ul/li[2]/a")
+    @FindBy(xpath = "//a[text()='Add/Remove Elements']")
     private WebElement addAndRemoveElementsLink;
-    @FindBy(xpath = "/html/body/div[2]/div/ul/li[29]/a")
+    @FindBy(xpath = "//a[text()='JavaScript Alerts']")
     private WebElement javaScriptAlertsLink;
 
     public AddAndRemoveElementsPage clickOnAddAndRemoveElementsLink(){

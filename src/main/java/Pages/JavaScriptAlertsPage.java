@@ -10,13 +10,13 @@ public class JavaScriptAlertsPage {
     public JavaScriptAlertsPage(WebDriver driver) {
         this.driver = driver;
     }
-    @FindBy (xpath = "/html/body/div[2]/div/div/ul/li[1]/button")
+    @FindBy (xpath = "//*[contains(@onclick,'jsAlert')]")
     private WebElement ForJSAlertButton;
-    @FindBy (xpath ="/html/body/div[2]/div/div/ul/li[2]/button")
+    @FindBy (xpath ="//*[contains(@onclick,'jsConfirm')]")
     private WebElement ForJSConfirmButton;
-    @FindBy (xpath = "/html/body/div[2]/div/div/ul/li[3]/button")
+    @FindBy (xpath = "//*[contains(@onclick,'jsPrompt')]")
     private WebElement ForJSPromptButton;
-    @FindBy (xpath ="//*[@id=\"result\"]")
+    @FindBy (xpath ="//*[@id='result']")
     private WebElement resultTextField;
 
     public JavaScriptAlertsPage clickForJSAlertButton() {
