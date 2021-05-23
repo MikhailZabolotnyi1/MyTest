@@ -6,6 +6,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.PageFactory;
 
+import java.util.concurrent.TimeUnit;
+
 
 public class MainTestClass {
     private WebDriver driver;
@@ -17,6 +19,7 @@ public class MainTestClass {
 
         System.setProperty("webdriver.chrome.driver", "C:\\Users\\Chris\\IdeaProjects\\PageObjectTZ\\drivers\\chromedriver.exe");
         driver = new ChromeDriver();
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
         System.out.println("Going to main page");
         driver.get("http://the-internet.herokuapp.com/");
@@ -28,7 +31,7 @@ public class MainTestClass {
         MainPage mainPage = PageFactory.initElements(driver, MainPage.class);
         AddAndRemoveElementsPage addAndRemoveElementsPage = PageFactory.initElements(driver, AddAndRemoveElementsPage.class);
 
-        System.out.println("Going to Add/Remove Elements page");
+        System.out.println("Going to Add and Remove Elements page");
         mainPage.clickOnAddAndRemoveElementsLink();
 
         System.out.println("Adding three elements");
@@ -52,19 +55,19 @@ public class MainTestClass {
         System.out.println("Going to JS Alerts page");
         mainPage.clickOnJavaScriptAlertsLink();
 
-        System.out.println("Click on \"Click for JS Alert\" button and click \"OK\" on Alert");
+        System.out.println("Click on \"Click for JS Alert\" and click \"OK\"");
         javaScriptAlertsPage.clickForJSAlertButton().clickOkJSAlertButton();
 
         System.out.println("Checking for a corresponding message");
         Assert.assertEquals("You successfully clicked an alert", javaScriptAlertsPage.getResultText());
 
-        System.out.println("click on \"Click for JS Confirm\" button and click \"Cancel\" on Alert");
+        System.out.println("click on \"Click for JS Confirm\" and click \"Cancel\"");
         javaScriptAlertsPage.clickForJSConfirmButton().clickCancelJSConfirmButton();
 
         System.out.println("Checking for a corresponding message");
         Assert.assertEquals("You clicked: Cancel", javaScriptAlertsPage.getResultText());
 
-        System.out.println("click on \"Click for JS Prompt\" button, some text input and click \"OK\" on Alert");
+        System.out.println("click on \"Click for JS Prompt\", sending some keys and click \"OK\"");
         javaScriptAlertsPage.clickForJSPromptButton().sendKeysInJSPromptButton("sheesh").clickOkJSAlertButton();
 
         System.out.println("Checking for a corresponding message");
