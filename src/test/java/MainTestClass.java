@@ -5,7 +5,6 @@ import org.junit.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.PageFactory;
-
 import java.util.concurrent.TimeUnit;
 
 
@@ -35,14 +34,15 @@ public class MainTestClass {
         mainPage.clickOnAddAndRemoveElementsLink();
 
         System.out.println("Adding three elements");
-        for (int i=1; i<4;i++){
-            addAndRemoveElementsPage.clickAddElementButton();
-        }
+        addAndRemoveElementsPage.clickAddElementButton().clickAddElementButton().clickAddElementButton();
+
+        System.out.println("Checking for number of elements");
         Assert.assertEquals(3, addAndRemoveElementsPage.checkDeleteButtons());
 
         System.out.println("Removed one of them");
         addAndRemoveElementsPage.clickDeleteButton();
 
+        System.out.println("Checking for number of elements");
         Assert.assertEquals(2, addAndRemoveElementsPage.checkDeleteButtons());
 
     }
