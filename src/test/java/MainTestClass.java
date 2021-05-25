@@ -10,8 +10,6 @@ import java.util.concurrent.TimeUnit;
 
 public class MainTestClass {
     private WebDriver driver;
-    private MainPage mainPage;
-
 
     @Before
     public void setUp() {
